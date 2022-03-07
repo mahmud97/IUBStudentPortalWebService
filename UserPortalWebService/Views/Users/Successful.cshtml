@@ -1,0 +1,10 @@
+﻿@model UserPortalWebService.Models.User
+
+@{
+    ViewBag.Title = "Successful";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Hi, @Model.FirstName your information have been chnaged Successfully</h2>
+@Html.ActionLink("Login to seen new updated profile ", "Login","Users")
+

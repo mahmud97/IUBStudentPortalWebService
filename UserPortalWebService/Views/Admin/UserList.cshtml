@@ -1,0 +1,115 @@
+﻿@model IEnumerable<UserPortalWebService.Models.User>
+
+@{
+    ViewBag.Title = "UserList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="pagetitle" style="text-align:center">
+    <h1>
+        User List
+    </h1>
+</div>
+@*<hr class="my-4">*@
+@*<div class="input-group add-on">
+    <input style="width:250px" class="form-control pull-right" placeholder="Search" name="srch-term" id="myInput" type="text">
+    <div class="input-group-btn">
+        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+    </div>
+</div>
+<br />*@
+
+<table class="table" id="header-fixed">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BirthDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkPlace)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.JobRole)
+            </th>
+
+
+
+
+        </tr>
+    </thead>
+    <tbody id="myTable">
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthDate)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkPlace)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.JobRole)
+            </td>
+
+
+
+        </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>*@
+    <script>
+
+        $(document).ready(function () {
+
+            $("#header-fixed").DataTable();
+        });
+
+
+        ////serach into table 
+        //$(document).ready(function () {
+        //    $("#myInput").on("keyup", function () {
+        //        var value = $(this).val().toLowerCase();
+        //        $("#myTable tr").filter(function () {
+        //            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        //        });
+        //    });
+        //});
+    </script>
+}
